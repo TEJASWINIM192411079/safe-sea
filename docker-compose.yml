@@ -22,10 +22,8 @@ services:
       retries: 10
 
   backend:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
-      container_name: safesea-backend
+    build: ./backend
+    container_name: safesea-backend
 
     depends_on:
       db:

@@ -6,7 +6,7 @@ COPY backend/package*.json ./
 
 RUN npm install
 
-COPY backend/src ./src
+COPY src ./src
 COPY db ./db
 
 ENV NODE_ENV=production
