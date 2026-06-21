@@ -23,9 +23,9 @@ services:
 
   backend:
     build:
-    context: .
-    dockerfile: backend/Dockerfile
-    container_name: safesea-backend
+      context: .
+      dockerfile: backend/Dockerfile
+      container_name: safesea-backend
 
     depends_on:
       db:
