@@ -28,7 +28,7 @@ Then open **http://localhost:8080**
 | Service   | URL                         |
 |-----------|-----------------------------|
 | Frontend  | http://localhost:8080       |
-| Backend   | http://localhost:4000       |
+| Backend   | http://localhost:4500       |
 | Postgres  | localhost:5432              |
 
 The backend waits for Postgres to be healthy, applies the schema, and seeds the
@@ -113,6 +113,6 @@ handlers keep working). Only the data layer changed:
 ## Configuration
 
 The frontend points at the backend using `window.SAFESEA_API`
-(`<host>:4000`, set in `index.html`). Backend settings (`PGHOST`, `JWT_SECRET`,
+(`<host>:4500`, set in `index.html`). Backend settings (`PGHOST`, `JWT_SECRET`,
 `PORT`, …) are provided by `docker-compose.yml` and can be overridden via
 environment variables.

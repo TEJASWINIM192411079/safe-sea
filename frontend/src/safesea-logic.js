@@ -5,7 +5,7 @@
 // are in scope for the rest of the script.
 // ═══════════════════════════════════════════════════════════════
 var API = (function () {
-  var base = (window.SAFESEA_API || 'http://localhost:4000').replace(/\/$/, '');
+  var base = (window.SAFESEA_API || 'http://localhost:4500').replace(/\/$/, '');
   var token = null;
   try { token = localStorage.getItem('ss_token'); } catch (e) {}
 
