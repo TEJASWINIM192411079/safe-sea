@@ -2,11 +2,12 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY backend/package*.json ./
 
 RUN npm install
 
-COPY src ./src
+COPY backend/src ./src
+COPY db ./db
 
 ENV NODE_ENV=production
 ENV PORT=4500

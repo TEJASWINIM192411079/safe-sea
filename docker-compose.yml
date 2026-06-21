@@ -22,7 +22,9 @@ services:
       retries: 10
 
   backend:
-    build: ./backend
+    build:
+    context: .
+    dockerfile: backend/Dockerfile
     container_name: safesea-backend
 
     depends_on:
@@ -39,8 +41,6 @@ services:
       JWT_SECRET: safesea-secret
       DB_DIR: /app/db
 
-    volumes:
-      - ./db:/app/db:ro
 
     ports:
       - "4500:4500"
