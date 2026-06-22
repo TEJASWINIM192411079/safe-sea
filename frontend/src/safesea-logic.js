@@ -614,19 +614,23 @@ function buildEmailBody(type){
   return `✅ SafeSea TEST EMAIL\nVessel: ${APP.user.vessel}\nRole: ${APP.role.toUpperCase()}\nPosition: ${s.lat.toFixed(4)}°N, ${s.lon.toFixed(4)}°E\nRisk: ${s.risk}%\nTime: ${now} UTC\n\nSystem is working correctly.`;
 }
 
-function testEmail(){
-  API.sendMessage({subject:'[SafeSea TEST] '+APP.user.vessel,body:buildEmailBody('test'),type:'test'})
-    .then(()=>{showToast('✅ Test Sent','Test message stored','var(--safe)');return refreshMessages();})
-    .catch(err=>showToast('Error',err.message||'Failed','var(--danger)'));
+async function testEmail() {
+    await sendEmailReal(
+        EMAIL_CFG.adminEmail,
+        "Admin",
+        "[SafeSea TEST]",
+        buildEmailBody('test'),
+        APP.user.fullname
+    );
 }
 
-async function sendSOS(){
-  try{
-    await API.sendSOS(buildEmailBody('sos'));
-    showToast('🆘 SOS BROADCAST','Location + risk sent to Coast Guard','var(--danger)');
-    await refreshMessages();
-  }catch(err){showToast('Error',err.message||'Could not send SOS','var(--danger)');}
-}
+await sendEmailReal(
+    EMAIL_CFG.adminEmail,
+    "Admin",
+    "SOS ALERT",
+    buildEmailBody('sos'),
+    APP.user.fullname
+);
 
 function openCompose(){
   document.getElementById('cm-from').textContent=APP.user.email;
