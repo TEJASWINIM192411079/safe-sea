@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safesea-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: safesea-backend
+  template:
+    metadata:
+      labels:
+        app: safesea-backend
+    spec:
+      containers:
+      - name: backend
+        image: safesea-backend:1.0
+        env:
+        - name: PORT
+          value: "4500"
+        - name: PGHOST
+          value: "safesea-db"
+        - name: PGPORT
+          value: "5432"
+        - name: PGUSER
+          value: "safesea"
+        - name: PGPASSWORD
+          value: "safesea"
+        - name: PGDATABASE
+          value: "safesea"
+        - name: DB_DIR
+          value: "/app/db"
+        ports:
+        - containerPort: 4500

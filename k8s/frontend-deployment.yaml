@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safesea-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: safesea-frontend
+  template:
+    metadata:
+      labels:
+        app: safesea-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: safesea-frontend:1.0
+        ports:
+        - containerPort: 80

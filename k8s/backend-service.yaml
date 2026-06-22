@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: safesea-backend
+spec:
+  selector:
+    app: safesea-backend
+  ports:
+  - port: 4500
+    targetPort: 4500

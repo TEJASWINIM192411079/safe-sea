@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safesea-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: safesea-db
+  template:
+    metadata:
+      labels:
+        app: safesea-db
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:16-alpine
+        env:
+        - name: POSTGRES_USER
+          value: safesea
+        - name: POSTGRES_PASSWORD
+          value: safesea
+        - name: POSTGRES_DB
+          value: safesea
+        ports:
+        - containerPort: 5432
