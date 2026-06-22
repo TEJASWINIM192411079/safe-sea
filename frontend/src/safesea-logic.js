@@ -101,8 +101,8 @@ function refreshFleetMarkers() {
 // ═══════════════════════════════════════
 const EMAIL_CFG = {
   serviceId:  'service_iuhkfm4',
-  templateId: '',          // Fill in your template ID
-  publicKey:  '',          // Fill in your public key
+  templateId: 'template_c5e906e',          // Fill in your template ID
+  publicKey:  'gOrmGImOo8-7l8ywG',          // Fill in your public key
   adminEmail: 'sharupriya3010@gmail.com'
 };
 
